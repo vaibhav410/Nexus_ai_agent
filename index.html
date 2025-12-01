@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus AI</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <div class="sidebar glass" id="sidebar">
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+                <span>Nexus AI</span>
+            </div>
+
+            <button class="new-chat-btn" onclick="clearChat()">
+                <i class="fas fa-plus"></i> New Session
+            </button>
+
+            <div class="modes-section">
+                <div
+                    style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">
+                    Select Mode</div>
+                <div class="modes-grid">
+                    <div class="mode-card glass-panel active" onclick="setMode(this, 'therapy')">
+                        <div class="mode-icon"><i class="fas fa-comments"></i></div>
+                        <div class="mode-name">Therapy</div>
+                    </div>
+                    <div class="mode-card glass-panel" onclick="setMode(this, 'meditation')">
+                        <div class="mode-icon"><i class="fas fa-spa"></i></div>
+                        <div class="mode-name">Meditate</div>
+                    </div>
+                    <div class="mode-card glass-panel" onclick="setMode(this, 'journal')">
+                        <div class="mode-icon"><i class="fas fa-book"></i></div>
+                        <div class="mode-name">Journal</div>
+                    </div>
+                    <div class="mode-card glass-panel" onclick="setMode(this, 'crisis')">
+                        <div class="mode-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                        <div class="mode-name">Crisis</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Chat -->
+        <div class="main-chat">
+            <div class="chat-header">
+                <div class="status-badge">Early Preview</div>
+            </div>
+
+            <div class="messages-container" id="messages">
+                <div class="welcome-screen" id="welcome">
+                    <h1 class="welcome-title">Nexus AI</h1>
+                    <p class="welcome-subtitle">Mental Wellness Companion</p>
+                    <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 32px;">
+                        Not a replacement for professional care • Available 24/7 for support
+                    </p>
+
+                    <div class="quick-actions">
+                        <div class="action-card glass-panel" onclick="sendQuick('I need help managing anxiety')">
+                            <div class="card-icon"><i class="fas fa-heartbeat"></i></div>
+                            <h3>Anxiety Management</h3>
+                            <p>Evidence-based techniques</p>
+                        </div>
+                        <div class="action-card glass-panel" onclick="sendQuick('Help me reflect on my thoughts')">
+                            <div class="card-icon"><i class="fas fa-pen"></i></div>
+                            <h3>Reflective Journaling</h3>
+                            <p>Guided thought exploration</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 48px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.05);">
+                        <p style="font-size: 0.7rem; color: var(--text-muted); line-height: 1.6; text-align: center;">
+                            <strong style="color: white;">AI Agent System:</strong> Powered by multi-agent architecture
+                            with emotion analysis,
+                            action planning, and adaptive response generation. Created by Vaibhav Kumar Kanojia.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-area">
+                <div class="input-wrapper">
+                    <textarea id="input" class="chat-input" placeholder="Share what's on your mind..."
+                        rows="1"></textarea>
+                    <button class="send-btn" onclick="sendMessage()">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
