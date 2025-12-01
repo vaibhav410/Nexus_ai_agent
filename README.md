@@ -1,229 +1,106 @@
-# Nexus_ai_agent
-Mental Wellness Companion
+# Nexus AI Agent - Mental Wellness Companion
 
+![Nexus AI Agent](banner.png)
 
-Today, millions of people experience anxiety, stress, and emotional burnout, but most do not have immediate access to emotional support or guided self-care tools.
-The challenge is creating an accessible, always-available system that can help users regulate emotions, journal their thoughts, meditate, and feel supported — without pretending to be a medical professional.
+> **Today, millions experience anxiety, stress, and emotional burnout without immediate access to support.** Nexus AI Agent provides an always-available companion for emotion regulation, journaling, meditation, and personalized guidance—**without medical advice**.
 
-Why Agents?
+## 🚀 Why Multi-Agent Architecture?
 
-Mental wellness is dynamic. Different situations require different types of responses.
-Agents are the perfect solution because they allow the system to break the problem into multiple expert behaviours:
+Mental wellness needs **dynamic, specialized responses**. Nexus uses modular agents that collaborate:
 
-Assessment Agent → understands the emotional tone
+Assessment Agent → Emotional tone detection
+Support Agent → Grounding, breathing, journaling prompts
+Follow-up Agent → Mood tracking & long-term suggestions
 
-Support Agent → provides grounding, breathing, journaling prompts
 
-Follow-up Agent → tracks mood patterns and provides long-term suggestions
+**Benefits**: Intelligent, safe, flexible, and scalable.
 
-Each agent works independently but collaborates to provide personalized support.
-This modular structure makes the system more intelligent, safe, and flexible.
+## 🏗️ System Architecture
 
-What I Created (Architecture)
+User → HTML/CSS/JS Frontend (Chat UI + Mode Selector)
+↓ POST /analyze
+Flask Backend → Rule-based emotional filter + Mode router
+↓ (Therapy/Meditate/Journal/Crisis)
+Tool Layer → Breathing, Grounding, Sleep routines
+↓
+Gemini 2.5 Flash → Empathetic, safety-filtered replies
+↓ mindmate.db+db_manager.py
+Frontend → Animated responses + mood tracking
 
-MindMate AI is built using a multi-agent architecture:
 
- 1. User Interface (Frontend)
+## ✨ Core Features
 
-A clean chat-based interface built with HTML, CSS, and JS inspired by Google’s ADK design.
+### **Multi-Mode Support**
+- **Therapy Mode**: Comforting emotional support
+- **Meditation Mode**: Guided breathing + mindfulness  
+- **Journal Mode**: Reflection prompts
+- **Crisis Mode**: Grounding + safety messaging [web:4]
 
- 2. Core Reasoning Agent
+### **Smart Rule-Based Layer**
+- Anxiety/Stress/Panic detection
+- Quick HINGLISH fallbacks
+- Cost-efficient (reduces API calls)
+- Offline-safe responses
 
-Powered by Gemini 2.5 Flash, fine-tuned with a short empathetic persona that ensures:
+### **Specialized Tools**
 
-Short 3–6 line responses
 
-No therapy or medical advice
 
-Safe tone following Google safety guidelines
+## 🛠️ Tech Stack
 
- 3. Mode-specific Agents
+| Layer | Technologies |
+|-------|--------------|
+| **Frontend** | HTML/CSS/JS, Google ADK-inspired UI, Mobile-responsive |
+| **Backend** | Flask, Flask-CORS, python-dotenv [attached_file:3] |
+| **AI Core** | Gemini 2.5 Flash (google-generativeai 0.7.2) |
+| **Tools** | Custom Python modules (breathing.py, grounding.py) |
+| **Data** | JSON mood storage + simple DB manager |
+| **Deployment** | Gunicorn production server |
 
-Therapy Mode → comforting small emotional support
 
-Meditation Mode → guided breathing + mindfulness
 
-Journal Mode → reflection prompts
+1. Setup
+pip install -r requirements.txt
+echo "GEMINI_KEY=your_key_here" > app.env
+python verify_setup.py # Verify everything works
 
-Crisis Mode → grounding + safety-first messaging
+2. Development
+python app.py
 
- 4. Rule-Based Layer
+Visit: http://127.0.0.1:5000
+3. Production
+gunicorn -w 4 -b 0.0.0.0:8000 app:app
 
-Before calling Gemini, the system uses rule-based triggers for:
+text
 
-Anxiety
+## 📱 API Endpoints
 
-Stress
+curl -X POST http://127.0.0.1:5000/analyze
+-H "Content-Type: application/json"
+-d '{"text": "Feeling anxious", "mode": "therapy"}'
 
-Panic
+text
 
-Sleep issues
+**Response**: `{"reply": "AI empathetic response"}` [attached_file:2]
 
-This reduces API cost and increases reliability.
+## 📁 File Structure
 
- 5. Tools (MCP-style local tools)
+├── app.py # Flask backend + agent orchestration
+├── verify_setup.py # Environment + API verification​
+├── requirements.txt # Dependencies​
+├── app.env # GEMINI_KEY
+├── static/ # CSS/JS (dark UI + animations)
+├── templates/index.html # Chat interface
+├── tools/ # Breathing, grounding, sleep modules
+├── logs.json # Mood + session storage​
+└── database/ # Simple mood pattern manager
 
-Breathing Tool → step-by-step breathing routine
 
-Grounding Tool → 5-4-3-2-1 grounding
+## 🌟 Future Roadmap
 
-Sleep Routine Tool → sleep hygiene suggestions
-
- 6. Lightweight Memory (JSON)
-
-Stores recent messages, emotional states, and modes to improve future responses.
-
-
-Used for structuring multi-agent workflows
-
-Helpful for reasoning, tool-use, and agent orchestration
-
-(Even if backend runs on Flask, ADK tools/ideas are used in logic design)
-
-🔹 Gemini 2.5 Flash
-
-Fast, lightweight model
-
-Powers:
-
-empathetic conversation
-
-mode-aware responses (Therapy / Meditation / Journal / Crisis)
-
-grounding, breathing guidance
-
-short supportive replies
-
-Safety-filtering + custom rule-based fallback
-
-🔹 Custom Rule-Based Agent Layer
-
-Anxiety/stress quick responses
-
-Short HINGLISH fallback answers
-
-Ensures no long medical essays
-
-Prevents blocked outputs
-
-Fast, offline-safe response layer before LLM
-
- Backend (Server Layer)
-🔹 Flask
-
-Main backend framework
-
-Routes:
-
-/ → Serve index.html
-
-/analyze → Process AI messages
-
-Lightweight & perfect for Kaggle notebooks + fast prototyping
-
-🔹 Python
-
-Core logic, agent orchestration, utilities
-
-🔹 Flask-CORS
-
-To connect frontend ↔ backend smoothly
-
-Handles cross-origin requests
-
-🔹 python-dotenv
-
-Secure handling of:
-
-GEMINI_KEY
-
-Environment configs
-
-🔹 Google Generative AI SDK
-
-Official Gemini library
-
-Used for:
-
-content generation
-
-controlled output
-
-safe responses
-
- 3. Frontend (UI Layer)
-🔹 HTML
-
-Chat layout
-
-Agent dashboard
-
-Mode selector (Therapy, Meditation, Journal, Crisis)
-
-🔹 CSS (Custom + Dark UI)
-
-Fully custom design, inspired by:
-
-Google ADK UI
-
-Modern assistants
-
-Animated background
-
-Smooth transitions
-
-Mobile responsive
-
-🔹 JavaScript
-
-Handles:
-
-sending/receiving messages
-
-typing animation
-
-mood cards
-
-quick replies
-
-local session management
-
-UI mode switching
-
-scroll handling
-
- 4. Tools Layer
-🔹 Custom Tools (Python Modules)
-
-Inside /tools/ folder:
-
-breathing.py → guided breathing exercises
-
-grounding.py → grounding techniques
-
-sleep_routine.py → sleep hygiene micro-tips
-
-These are AI-callable functions (mini-tools) similar to ADK tools.
-
- 5. Data Layer
-🔹 JSON-based Mood Storage
-
-Path: logs.json
-Stores:
-
-mood
-
-reason
-
-date/time
-
-Example: 
-
-logs
-
-🔹 Simple DB Manager
-
-Found in database folder:
-Stores + retrieves user mood patterns for personalized suggestions.
-
+- Voice interaction
+- Wearable integration (heart rate, sleep)
+- Therapist dashboard
+- Multi-language support
+- Advanced mood analytics [web:4]
 
