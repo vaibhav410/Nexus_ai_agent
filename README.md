@@ -1,11 +1,11 @@
 # Nexus AI Agent - Mental Wellness Companion
 
-![Nexus AI Agent](<img width="1668" height="728" alt="Screenshot 2025-12-02 005050" src="https://github.com/user-attachments/assets/4754fe7b-7ebd-4c69-8b35-c1bb1e71aae1" />)
+![Nexus AI Agent] <img width="1668" height="728" alt="Screenshot 2025-12-02 005050" src="https://github.com/user-attachments/assets/088c465b-e795-4a4f-8830-258189de8d74" />
 
 > **Today, millions experience anxiety, stress, and emotional burnout without immediate access to support.** Nexus AI Agent provides an always-available companion for emotion regulation, journaling, meditation, and personalized guidance—**without medical advice**.
 
 
-## 🚀 Why Multi-Agent Architecture?
+##  Why Multi-Agent Architecture?
 
 Mental wellness needs **dynamic, specialized responses**. Nexus uses modular agents that collaborate:
 
@@ -29,7 +29,7 @@ Gemini 2.5 Flash → Empathetic, safety-filtered replies
 Frontend → Animated responses + mood tracking
 
 
-## ✨ Core Features
+##  Core Features
 
 ### **Multi-Mode Support**
 - **Therapy Mode**: Comforting emotional support
@@ -74,7 +74,7 @@ gunicorn -w 4 -b 0.0.0.0:8000 app:app
 
 text
 
-## 📱 API Endpoints
+##  API Endpoints
 
 curl -X POST http://127.0.0.1:5000/analyze
 -H "Content-Type: application/json"
@@ -97,7 +97,7 @@ text
 └── database/ # Simple mood pattern manager
 
 
-## 🌟 Future Roadmap
+##  Future Roadmap
 
 - Voice interaction
 - Wearable integration (heart rate, sleep)
