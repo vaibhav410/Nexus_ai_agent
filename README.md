@@ -1,6 +1,7 @@
 # Nexus AI Agent - Mental Wellness Companion
 
-![Nexus AI Agent] <img width="1668" height="728" alt="Screenshot 2025-12-02 005050" src="https://github.com/user-attachments/assets/088c465b-e795-4a4f-8830-258189de8d74" />
+![Nexus AI Agent] <img width="1919" height="876" alt="Screenshot 2025-12-02 004519" src="https://github.com/user-attachments/assets/d7093b09-3eff-4412-bca6-c367175368a6" />
+
 
 > **Today, millions experience anxiety, stress, and emotional burnout without immediate access to support.** Nexus AI Agent provides an always-available companion for emotion regulation, journaling, meditation, and personalized guidance—**without medical advice**.
 
@@ -53,7 +54,7 @@ Frontend → Animated responses + mood tracking
 |-------|--------------|
 | **Frontend** | HTML/CSS/JS, Google ADK-inspired UI, Mobile-responsive |
 | **Backend** | Flask, Flask-CORS, python-dotenv [attached_file:3] |
-| **AI Core** | Gemini 2.5 Flash (google-generativeai 0.7.2) |
+| **AI Core** | Gemini 2.5 Flash (google-generative 0.7.2) |
 | **Tools** | Custom Python modules (breathing.py, grounding.py) |
 | **Data** | JSON mood storage + simple DB manager |
 | **Deployment** | Gunicorn production server |
