@@ -1,6 +1,6 @@
 # Nexus AI Agent - Mental Wellness Companion
 
-![Nexus AI Agent] <img width="1919" height="876" alt="Screenshot 2025-12-02 004519" src="https://github.com/user-attachments/assets/d7093b09-3eff-4412-bca6-c367175368a6" />
+![Nexus AI Agent] <img width="1918" height="859" alt="image" src="https://github.com/user-attachments/assets/df02fd84-54f6-4693-a2b7-49025a69e5fc" />
 
 
 > **Today, millions experience anxiety, stress, and emotional burnout without immediate access to support.** Nexus AI Agent provides an always-available companion for emotion regulation, journaling, meditation, and personalized guidance—**without medical advice**.
